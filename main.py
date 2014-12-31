@@ -4,13 +4,16 @@ Erica Johnson
 """
 
 import cell
+import random
 
-alleleA = {'lifespan': 10, 'BMR': 2, 'dominant_over': ['alleleC']}
-alleleB = {'lifespan': 10, 'BMR': 2, 'dominant_over': ['alleleD']}
-alleleC = {'lifespan': 10, 'BMR': 2, 'dominant_over': []}
-alleleD = {'lifespan': 10, 'BMR': 2, 'dominant_over': []}
+alleleA = {'lifespan': 11, 'BMR': 1, 'dominant_over': ['alleleC']}
+alleleB = {'lifespan': 12, 'BMR': 2, 'dominant_over': ['alleleD']}
+alleleC = {'lifespan': 13, 'BMR': 3, 'dominant_over': []}
+alleleD = {'lifespan': 14, 'BMR': 4, 'dominant_over': []}
 
 def main():
-    new_cell = cell.Cell(alleleA, alleleD)
+    cell_1 = cell.Cell(alleleA, alleleD)
+    cell_2 = cell.Cell(alleleA, alleleC)
+    print(cell_1.BMR)
     
 main()
