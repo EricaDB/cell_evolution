@@ -10,6 +10,8 @@ class Cell:
 	    self.allele_2 = allele_2
 	    self.BMR = self.find_BMR()
 	    self.lifespan = self.find_lifespan()
+	    self.C = 0
+	    self.N = 0
 	    
 	def dominant_allele(self):
 	    if self.allele_2 in self.allele_1['dominant_over']:
