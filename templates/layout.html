@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang=”en”>
+  <head>
+    {% block head %}
+    <title>{% block title %}{% endblock %} - Cell Evolution</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    {% endblock %}
+  </head>
+  <body>
+    <div id="content">{% block content %}WELCOME TO CELL EVOLUTION!{% endblock %}</div>
+    <div id="footer">
+      {% block footer %}
+      &copy; January 2015, Erica Johnson.
+      {% endblock %}
+    </div>
+  </body>
+</html>
