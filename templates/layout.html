@@ -4,10 +4,27 @@
     {% block head %}
     <title>{% block title %}{% endblock %} - Cell Evolution</title>
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     {% endblock %}
   </head>
   <body>
-    <div id="content">{% block content %}WELCOME TO CELL EVOLUTION!{% endblock %}</div>
+    <div id="content">
+      {% block header %}<h1 id="header">WELCOME TO CELL EVOLUTION!</h1>{% endblock %}
+      {% block content %}
+        <svg width="720" height="120">
+          <circle cx="40" cy="60" r="10"></circle>
+          <circle cx="80" cy="60" r="10"></circle>
+          <circle cx="120" cy="60" r="10"></circle>
+        </svg>
+        <script>
+          var circle = d3.selectAll("circle");
+          circle.style("fill", "skyblue");
+          circle.style("stroke", "black");
+          circle.style("stroke-width", "3");
+          circle.attr("r", 15);
+        </script>
+      {% endblock %}
+    </div>
     <div id="footer">
       {% block footer %}
       &copy; January 2015, Erica Johnson.
