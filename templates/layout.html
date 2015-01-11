@@ -22,6 +22,11 @@
           circle.style("stroke", "black");
           circle.style("stroke-width", "3");
           circle.attr("r", 15);
+          circle.attr("cx", function() { return Math.random() * 720; });
+          circle
+            .transition()
+            .duration(3000)
+            .attr("cx", function() { return Math.random() * 720; });
         </script>
       {% endblock %}
     </div>
