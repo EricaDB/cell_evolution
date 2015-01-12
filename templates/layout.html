@@ -12,14 +12,31 @@
     <div id="content">
       {% block header %}<h1 id="header">WELCOME TO CELL EVOLUTION!</h1>{% endblock %}
       {% block content %}
-        <svg width="700" height="700">
-          <circle cx="150" cy="350" r="10"></circle>
-          <circle cx="350" cy="350" r="10"></circle>
-          <circle cx="550" cy="350" r="10"></circle>
+        <svg width="710" height="710">
+          <circle id="salmonCircle" cx="150" cy="150" r="10"></circle>
+          <circle id="salmonCircle" cx="350" cy="150" r="10"></circle>
+          <circle id="salmonCircle" cx="550" cy="150" r="10"></circle>
+        
+          <circle id="purpleCircle" cx="150" cy="350" r="10"></circle>
+          <circle id="purpleCircle" cx="350" cy="350" r="10"></circle>
+          <circle id="purpleCircle" cx="550" cy="350" r="10"></circle>
+          
+          <circle id="blueCircle" cx="150" cy="550" r="10"></circle>
+          <circle id="blueCircle" cx="350" cy="550" r="10"></circle>
+          <circle id="blueCircle" cx="550" cy="550" r="10"></circle>
         </svg>
         <script>
           var circle = d3.selectAll("circle");
-          circle.style("fill", "blueviolet");
+          
+          var salmonCircle = d3.selectAll("#salmonCircle");
+          salmonCircle.style("fill", "LightSalmon");
+        
+          var purpleCircle = d3.selectAll("#purpleCircle");
+          purpleCircle.style("fill", "BlueViolet");
+          
+          var blueCircle = d3.selectAll("#blueCircle");
+          blueCircle.style("fill", "DarkTurquoise");
+          
           circle.style("stroke", "black");
           circle.style("stroke-width", "3");
           circle.attr("r", 15);
@@ -41,7 +58,7 @@
     </div>
     <div id="footer">
       {% block footer %}
-      &copy; January 2015, Erica Johnson.
+      By Erica Johnson, January 2015.
       {% endblock %}
     </div>
   </center>
