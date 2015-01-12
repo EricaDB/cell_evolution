@@ -8,25 +8,34 @@
     {% endblock %}
   </head>
   <body>
+  <center>
     <div id="content">
       {% block header %}<h1 id="header">WELCOME TO CELL EVOLUTION!</h1>{% endblock %}
       {% block content %}
-        <svg width="720" height="120">
-          <circle cx="40" cy="60" r="10"></circle>
-          <circle cx="80" cy="60" r="10"></circle>
-          <circle cx="120" cy="60" r="10"></circle>
+        <svg width="700" height="700">
+          <circle cx="150" cy="350" r="10"></circle>
+          <circle cx="350" cy="350" r="10"></circle>
+          <circle cx="550" cy="350" r="10"></circle>
         </svg>
         <script>
           var circle = d3.selectAll("circle");
-          circle.style("fill", "skyblue");
+          circle.style("fill", "blueviolet");
           circle.style("stroke", "black");
           circle.style("stroke-width", "3");
           circle.attr("r", 15);
-          circle.attr("cx", function() { return Math.random() * 720; });
-          circle
-            .transition()
-            .duration(3000)
-            .attr("cx", function() { return Math.random() * 720; });
+          
+          function cellMove() {
+            circle
+              .transition()
+              .duration(6000)
+              .ease("linear")
+              .attr("cx", function() { return Math.random() * 700; })
+              .attr("cy", function() { return Math.random() * 700; });
+            setTimeout(function() {cellMove();}, 1000);
+          }
+          
+          cellMove();
+          
         </script>
       {% endblock %}
     </div>
@@ -35,5 +44,6 @@
       &copy; January 2015, Erica Johnson.
       {% endblock %}
     </div>
+  </center>
   </body>
 </html>
