@@ -44,11 +44,11 @@
           function cellMove() {
             circle
               .transition()
-              .duration(6000)
+              .duration(10000)
               .ease("linear")
               .attr("cx", function() { return Math.random() * 680; })
               .attr("cy", function() { return Math.random() * 680; });
-            setTimeout(function() {cellMove();}, 5000);
+            setTimeout(function() {cellMove();}, 9000);
           }
           
           cellMove();
