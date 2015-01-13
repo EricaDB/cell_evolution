@@ -12,7 +12,7 @@
     <div id="content">
       {% block header %}<h1 id="header">WELCOME TO CELL EVOLUTION!</h1>{% endblock %}
       {% block content %}
-        <svg width="710" height="710">
+        <svg width="700" height="700">
           <circle id="salmonCircle" cx="150" cy="150" r="10"></circle>
           <circle id="salmonCircle" cx="350" cy="150" r="10"></circle>
           <circle id="salmonCircle" cx="550" cy="150" r="10"></circle>
@@ -44,11 +44,11 @@
           function cellMove() {
             circle
               .transition()
-              .duration(6000)
+              .duration(10000)
               .ease("linear")
-              .attr("cx", function() { return Math.random() * 700; })
-              .attr("cy", function() { return Math.random() * 700; });
-            setTimeout(function() {cellMove();}, 1000);
+              .attr("cx", function() { return Math.random() * 680; })
+              .attr("cy", function() { return Math.random() * 680; });
+            setTimeout(function() {cellMove();}, 9000);
           }
           
           cellMove();
