@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang=”en”>
+  <head>
+    
+    <title> - Cell Evolution</title>
+    <link href="../static/style.css" rel="stylesheet">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    
+  </head>
+  <body>
+  <center>
+    <div id="content">
+      <h1 id="header">WELCOME TO CELL EVOLUTION!</h1>
+      
+        <svg width="710" height="710">
+          <circle id="salmonCircle" cx="150" cy="150" r="10"></circle>
+          <circle id="salmonCircle" cx="350" cy="150" r="10"></circle>
+          <circle id="salmonCircle" cx="550" cy="150" r="10"></circle>
+        
+          <circle id="purpleCircle" cx="150" cy="350" r="10"></circle>
+          <circle id="purpleCircle" cx="350" cy="350" r="10"></circle>
+          <circle id="purpleCircle" cx="550" cy="350" r="10"></circle>
+          
+          <circle id="blueCircle" cx="150" cy="550" r="10"></circle>
+          <circle id="blueCircle" cx="350" cy="550" r="10"></circle>
+          <circle id="blueCircle" cx="550" cy="550" r="10"></circle>
+        </svg>
+        <script>
+          var circle = d3.selectAll("circle");
+          
+          var salmonCircle = d3.selectAll("#salmonCircle");
+          salmonCircle.style("fill", "LightSalmon");
+        
+          var purpleCircle = d3.selectAll("#purpleCircle");
+          purpleCircle.style("fill", "BlueViolet");
+          
+          var blueCircle = d3.selectAll("#blueCircle");
+          blueCircle.style("fill", "DarkTurquoise");
+          
+          circle.style("stroke", "black");
+          circle.style("stroke-width", "3");
+          circle.attr("r", 15);
+          
+          function cellMove() {
+            circle
+              .transition()
+              .duration(6000)
+              .ease("linear")
+              .attr("cx", function() { return Math.random() * 700; })
+              .attr("cy", function() { return Math.random() * 700; });
+            setTimeout(function() {cellMove();}, 1000);
+          }
+          
+          cellMove();
+          
+        </script>
+      
+    </div>
+    <div id="footer">
+      
+      By Erica Johnson, January 2015.
+      
+    </div>
+  </center>
+  </body>
+</html>
