@@ -2,7 +2,7 @@
 <html lang=”en”>
   <head>
     
-    <title> - Cell Evolution</title>
+    <title>Cell Evolution</title>
     <link href="static/style.css" rel="stylesheet">
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     
@@ -12,18 +12,18 @@
     <div id="content">
       <h1 id="header">WELCOME TO CELL EVOLUTION!</h1>
       
-        <svg width="700" height="700">
-          <circle id="salmonCircle" cx="150" cy="150" r="10"></circle>
-          <circle id="salmonCircle" cx="350" cy="150" r="10"></circle>
-          <circle id="salmonCircle" cx="550" cy="150" r="10"></circle>
+        <svg width="700" height="600">
+          <circle id="salmonCircle" cx="150" cy="100" r="10"></circle>
+          <circle id="salmonCircle" cx="350" cy="100" r="10"></circle>
+          <circle id="salmonCircle" cx="550" cy="100" r="10"></circle>
         
-          <circle id="purpleCircle" cx="150" cy="350" r="10"></circle>
-          <circle id="purpleCircle" cx="350" cy="350" r="10"></circle>
-          <circle id="purpleCircle" cx="550" cy="350" r="10"></circle>
+          <circle id="purpleCircle" cx="150" cy="300" r="10"></circle>
+          <circle id="purpleCircle" cx="350" cy="300" r="10"></circle>
+          <circle id="purpleCircle" cx="550" cy="300" r="10"></circle>
           
-          <circle id="blueCircle" cx="150" cy="550" r="10"></circle>
-          <circle id="blueCircle" cx="350" cy="550" r="10"></circle>
-          <circle id="blueCircle" cx="550" cy="550" r="10"></circle>
+          <circle id="blueCircle" cx="150" cy="500" r="10"></circle>
+          <circle id="blueCircle" cx="350" cy="500" r="10"></circle>
+          <circle id="blueCircle" cx="550" cy="500" r="10"></circle>
         </svg>
         <script>
           var circle = d3.selectAll("circle");
@@ -47,7 +47,7 @@
               .duration(10000)
               .ease("linear")
               .attr("cx", function() { return Math.random() * 680; })
-              .attr("cy", function() { return Math.random() * 680; });
+              .attr("cy", function() { return Math.random() * 580; });
             setTimeout(function() {cellMove();}, 9000);
           }
           
@@ -58,7 +58,9 @@
     </div>
     <div id="footer">
       
-      By Erica Johnson, January 2015.
+      By <a href= "https://www.linkedin.com/profile/view?id=357655813">
+      Erica Johnson</a>, January 2015. (See the 
+      <a href="https://github.com/EricaJohnson/cell_evolution">code</a>)
       
     </div>
   </center>
