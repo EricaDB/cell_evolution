@@ -1,2 +1,12 @@
-#footer            { font-family: 'Gotham';}
-#header          { font-family: 'Georgia', serif; margin: 0; color: white; background: green; }
+#footer { 
+    font-family: 'Optima';
+    font-size: 16px;
+}
+
+#header { 
+    font-family: 'Optima', serif;
+    color: white; 
+    background: green;
+    margin-top: 12px;
+    margin-bottom: 0px;
+}
