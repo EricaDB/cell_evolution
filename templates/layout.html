@@ -12,7 +12,7 @@
     <div id="content">
       {% block header %}<h1 id="header">WELCOME TO CELL EVOLUTION!</h1>{% endblock %}
       {% block content %}
-        <svg width="700" height="600">
+        <svg width="700" height="600"> 
           <circle id="salmonCircle" cx="150" cy="100" r="10"></circle>
           <circle id="salmonCircle" cx="350" cy="100" r="10"></circle>
           <circle id="salmonCircle" cx="550" cy="100" r="10"></circle>
@@ -28,14 +28,21 @@
         <script>
           var circle = d3.selectAll("circle");
           
+          d3.json("cells.json", function(error, cells) {
+              circle
+                  .data(cells)
+                  .enter().append("circle")
+                  .style("fill", function(d) { return d.color; })
+          });
+          
           var salmonCircle = d3.selectAll("#salmonCircle");
-          salmonCircle.style("fill", "LightSalmon");
+          //salmonCircle.style("fill", "LightSalmon");
         
           var purpleCircle = d3.selectAll("#purpleCircle");
-          purpleCircle.style("fill", "BlueViolet");
+          //purpleCircle.style("fill", "BlueViolet");
           
           var blueCircle = d3.selectAll("#blueCircle");
-          blueCircle.style("fill", "DarkTurquoise");
+          //blueCircle.style("fill", "DarkTurquoise");
           
           circle.style("stroke", "black");
           circle.style("stroke-width", "3");
