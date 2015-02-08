@@ -7,7 +7,7 @@
     7 Jan 2015
 """
 
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 import json
 from cell import Cell
 import random
@@ -39,7 +39,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('layout.html')
+    data = jsonify(results=cell_list)
+    return render_template('layout.html', data = data)
     
 if __name__ == '__main__':
     app.run(debug = True)
