@@ -29,7 +29,7 @@ for cell in cells:
     color = "%06x" % random.randint(0,0xFFFFFF)
     for i in range(random.randint(1, 5)):
         cell_list.append({
-            'color' : color
+            'color' : "#" + color
             })
 
 out_file = open("cells.json", "w")
@@ -39,7 +39,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    data = jsonify(results=cell_list)
+    #data = jsonify(results=cell_list)
+    data = cell_list
     return render_template('layout.html', data = data)
     
 if __name__ == '__main__':
