@@ -29,8 +29,10 @@ for cell in cells:
     color = "%06x" % random.randint(0,0xFFFFFF)
     for i in range(random.randint(1, 5)):
         cell_list.append({
-            'color' : "#" + color
+            "color" : "\"#" + color + "\""
             })
+            
+print(cell_list)
 
 out_file = open("cells.json", "w")
 json.dump(cell_list, out_file, indent=4)

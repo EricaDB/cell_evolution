@@ -18,49 +18,24 @@
         {% endfor %}
       </ul>
         <svg width="700" height="600"> 
-          <circle id="salmonCircle" cx="150" cy="100" r="10"></circle>
-          <circle id="salmonCircle" cx="350" cy="100" r="10"></circle>
-          <circle id="salmonCircle" cx="550" cy="100" r="10"></circle>
-        
-          <circle id="purpleCircle" cx="150" cy="300" r="10"></circle>
-          <circle id="purpleCircle" cx="350" cy="300" r="10"></circle>
-          <circle id="purpleCircle" cx="550" cy="300" r="10"></circle>
           
-          <circle id="blueCircle" cx="150" cy="500" r="10"></circle>
-          <circle id="blueCircle" cx="350" cy="500" r="10"></circle>
-          <circle id="blueCircle" cx="550" cy="500" r="10"></circle>
         </svg>
         <script>
-          var data = '{{ data }}';
+          var data = {{ data }};
+          console.log({{ data }});
           
           var svg = d3.select("svg");
         
           var circle = svg.selectAll("circle")
-            .data(data)
-            .style("fill", "#0bc97f");//function(d) { return d.color; console.log(d.color); });
-          
-          //circle
-            //.enter().append("circle")
-            //.style("fill", "red");
-            //.style("fill", function(d) { return d.color; });
-            
-          svg.selectAll("circle")
-            .data(data)
+            .data(data, function(d) { return d; })
+
+          circle.exit().remove();
+
+          circle
             .enter().append("circle")
             .style("fill", function(d) { return d.color; })
             .attr("cx", function() { return Math.random() * 680; })
             .attr("cy", function() { return Math.random() * 580; });
-            
-          circle.exit().remove();
-          
-          //var salmonCircle = d3.selectAll("#salmonCircle");
-          //salmonCircle.style("fill", "LightSalmon");
-        
-          //var purpleCircle = d3.selectAll("#purpleCircle");
-          //purpleCircle.style("fill", "BlueViolet");
-          
-          //var blueCircle = d3.selectAll("#blueCircle");
-          //blueCircle.style("fill", "DarkTurquoise");
           
           circle.style("stroke", "black");
           circle.style("stroke-width", "3");
