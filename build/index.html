@@ -1,41 +1,30 @@
 <!DOCTYPE html>
 <html lang=”en”>
   <head>
-    
     <title>Cell Evolution</title>
     <link href="static/style.css" rel="stylesheet">
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    
   </head>
   <body>
   <center>
     <div id="content">
       <h1 id="header">WELCOME TO CELL EVOLUTION!</h1>
-      
-        <svg width="700" height="600">
-          <circle id="salmonCircle" cx="150" cy="100" r="10"></circle>
-          <circle id="salmonCircle" cx="350" cy="100" r="10"></circle>
-          <circle id="salmonCircle" cx="550" cy="100" r="10"></circle>
-        
-          <circle id="purpleCircle" cx="150" cy="300" r="10"></circle>
-          <circle id="purpleCircle" cx="350" cy="300" r="10"></circle>
-          <circle id="purpleCircle" cx="550" cy="300" r="10"></circle>
-          
-          <circle id="blueCircle" cx="150" cy="500" r="10"></circle>
-          <circle id="blueCircle" cx="350" cy="500" r="10"></circle>
-          <circle id="blueCircle" cx="550" cy="500" r="10"></circle>
-        </svg>
+        <svg width="700" height="600"></svg>
         <script>
-          var circle = d3.selectAll("circle");
+          var data = [{'color': '#a61cf4'}, {'color': '#a61cf4'}, {'color': '#a61cf4'}, {'color': '#a61cf4'}, {'color': '#a61cf4'}, {'color': '#0d95dd'}, {'color': '#0d95dd'}, {'color': '#0d95dd'}, {'color': '#278940'}, {'color': '#278940'}, {'color': '#278940'}];
           
-          var salmonCircle = d3.selectAll("#salmonCircle");
-          salmonCircle.style("fill", "LightSalmon");
+          var svg = d3.select("svg");
         
-          var purpleCircle = d3.selectAll("#purpleCircle");
-          purpleCircle.style("fill", "BlueViolet");
-          
-          var blueCircle = d3.selectAll("#blueCircle");
-          blueCircle.style("fill", "DarkTurquoise");
+          var circle = svg.selectAll("circle")
+            .data(data);
+
+          circle.exit().remove();
+
+          circle
+            .enter().append("circle")
+            .style("fill", function(d) { return d.color; })
+            .attr("cx", function() { return Math.random() * 680; })
+            .attr("cy", function() { return Math.random() * 580; });
           
           circle.style("stroke", "black");
           circle.style("stroke-width", "3");
@@ -54,14 +43,11 @@
           cellMove();
           
         </script>
-      
     </div>
     <div id="footer">
-      
-      By <a href= "https://www.linkedin.com/profile/view?id=357655813">
+      By <a href= "https://www.linkedin.com/in/ericadjohnson2">
       Erica Johnson</a>, January 2015. (See the 
       <a href="https://github.com/EricaJohnson/cell_evolution">code</a>)
-      
     </div>
   </center>
   </body>
