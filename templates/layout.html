@@ -21,10 +21,10 @@
           
         </svg>
         <script>
-          var data = {{ data }};
-          for (i = 0; i < data.length; i++):
-            data[i] = unescape(data[i]);
-          console.log({{ data }});
+          var data = {{ data|safe }};
+//           for (i = 0; i < data.length; i++):
+//             data[i] = unescape(data[i]);
+          console.log({{ data|safe }});
           
           var svg = d3.select("svg");
         
