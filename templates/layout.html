@@ -1,41 +1,28 @@
 <!DOCTYPE html>
 <html lang=”en”>
   <head>
-    {% block head %}
-    <title>{% block title %}{% endblock %}Cell Evolution</title>
+    <title>Cell Evolution</title>
     <link href="static/style.css" rel="stylesheet">
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    {% endblock %}
   </head>
   <body>
   <center>
     <div id="content">
-      {% block header %}<h1 id="header">WELCOME TO CELL EVOLUTION!</h1>{% endblock %}
-      {% block content %}
-      <ul>
-        {% for cell in data %}
-          <li>{{ cell }}</li>
-        {% endfor %}
-      </ul>
-        <svg width="700" height="600"> 
-          
-        </svg>
+      <h1 id="header">WELCOME TO CELL EVOLUTION!</h1>
+        <svg width="700" height="600"></svg>
         <script>
           var data = {{ data|safe }};
-//           for (i = 0; i < data.length; i++):
-//             data[i] = unescape(data[i]);
-          console.log({{ data|safe }});
           
           var svg = d3.select("svg");
         
           var circle = svg.selectAll("circle")
-            .data(data, function(d) { return d; })
+            .data(data);
 
           circle.exit().remove();
 
           circle
             .enter().append("circle")
-            .style("fill", function(d) { return unescape(d.color); })
+            .style("fill", function(d) { return d.color; })
             .attr("cx", function() { return Math.random() * 680; })
             .attr("cy", function() { return Math.random() * 580; });
           
@@ -56,14 +43,11 @@
           cellMove();
           
         </script>
-      {% endblock %}
     </div>
     <div id="footer">
-      {% block footer %}
-      By <a href= "https://www.linkedin.com/profile/view?id=357655813">
+      By <a href= "https://www.linkedin.com/in/ericadjohnson2">
       Erica Johnson</a>, January 2015. (See the 
       <a href="https://github.com/EricaJohnson/cell_evolution">code</a>)
-      {% endblock %}
     </div>
   </center>
   </body>

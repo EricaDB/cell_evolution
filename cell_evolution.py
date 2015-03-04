@@ -25,19 +25,12 @@ cell3 = Cell(alleleD, alleleD)
 
 cells = [cell1, cell2, cell3]
 
-# for cell in cells:
-#     color = "%06x" % random.randint(0,0xFFFFFF)
-#     for i in range(random.randint(1, 5)):
-#         cell_list.append({
-#             "color" : "#" + color
-#             })
-
 for cell in cells:
     color = "%06x" % random.randint(0,0xFFFFFF)
     for i in range(random.randint(1, 5)):
-        cell_list.append("#" + color)
-            
-print(cell_list)
+        cell_list.append({
+            "color" : "#" + color
+            })
 
 out_file = open("cells.json", "w")
 json.dump(cell_list, out_file, indent=4)
@@ -46,7 +39,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    #data = jsonify(results=cell_list)
     data = cell_list
     return render_template('layout.html', data = data)
     
