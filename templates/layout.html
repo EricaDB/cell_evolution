@@ -14,7 +14,7 @@
       {% block content %}
       <ul>
         {% for cell in data %}
-          <li>{{ cell.color }}</li>
+          <li>{{ cell }}</li>
         {% endfor %}
       </ul>
         <svg width="700" height="600"> 
@@ -22,6 +22,8 @@
         </svg>
         <script>
           var data = {{ data }};
+          for (i = 0; i < data.length; i++):
+            data[i] = unescape(data[i]);
           console.log({{ data }});
           
           var svg = d3.select("svg");
@@ -33,7 +35,7 @@
 
           circle
             .enter().append("circle")
-            .style("fill", function(d) { return d.color; })
+            .style("fill", function(d) { return unescape(d.color); })
             .attr("cx", function() { return Math.random() * 680; })
             .attr("cy", function() { return Math.random() * 580; });
           

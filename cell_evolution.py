@@ -25,12 +25,17 @@ cell3 = Cell(alleleD, alleleD)
 
 cells = [cell1, cell2, cell3]
 
+# for cell in cells:
+#     color = "%06x" % random.randint(0,0xFFFFFF)
+#     for i in range(random.randint(1, 5)):
+#         cell_list.append({
+#             "color" : "#" + color
+#             })
+
 for cell in cells:
     color = "%06x" % random.randint(0,0xFFFFFF)
     for i in range(random.randint(1, 5)):
-        cell_list.append({
-            "color" : "\"#" + color + "\""
-            })
+        cell_list.append("#" + color)
             
 print(cell_list)
 
