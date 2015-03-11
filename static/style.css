@@ -10,3 +10,11 @@
     margin-top: 12px;
     margin-bottom: 0px;
 }
+
+.d3-tip {
+  font-family: 'Optima', serif;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border-radius: 6px;
+  padding: 8px;
+}
