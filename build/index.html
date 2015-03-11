@@ -4,6 +4,7 @@
     <title>Cell Evolution</title>
     <link href="static/style.css" rel="stylesheet">
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
   </head>
   <body>
   <center>
@@ -11,9 +12,17 @@
       <h1 id="header">WELCOME TO CELL EVOLUTION!</h1>
         <svg width="700" height="600"></svg>
         <script>
-          var data = [{'color': '#a61cf4'}, {'color': '#a61cf4'}, {'color': '#a61cf4'}, {'color': '#a61cf4'}, {'color': '#a61cf4'}, {'color': '#0d95dd'}, {'color': '#0d95dd'}, {'color': '#0d95dd'}, {'color': '#278940'}, {'color': '#278940'}, {'color': '#278940'}];
+          var data = [{'color': '#05e3ad', 'BMR': 30, 'lifespan': 30}, {'color': '#05e3ad', 'BMR': 30, 'lifespan': 30}, {'color': '#05e3ad', 'BMR': 30, 'lifespan': 30}, {'color': '#05e3ad', 'BMR': 30, 'lifespan': 30}, {'color': '#e05049', 'BMR': 10, 'lifespan': 10}, {'color': '#e05049', 'BMR': 10, 'lifespan': 10}, {'color': '#e05049', 'BMR': 10, 'lifespan': 10}, {'color': '#e05049', 'BMR': 10, 'lifespan': 10}, {'color': '#e05049', 'BMR': 10, 'lifespan': 10}, {'color': '#c98ed6', 'BMR': 15, 'lifespan': 15}, {'color': '#c98ed6', 'BMR': 15, 'lifespan': 15}, {'color': '#c98ed6', 'BMR': 15, 'lifespan': 15}];
           
           var svg = d3.select("svg");
+          
+          var tip = d3.tip()
+            .attr('class', 'd3-tip')
+            .html(function(d) {
+             return "<strong>Lifespan: </strong><b><span style='color:black'>" + d.lifespan + "</span></b>";
+             });
+             
+          svg.call(tip); //?
         
           var circle = svg.selectAll("circle")
             .data(data);
@@ -24,7 +33,9 @@
             .enter().append("circle")
             .style("fill", function(d) { return d.color; })
             .attr("cx", function() { return Math.random() * 680; })
-            .attr("cy", function() { return Math.random() * 580; });
+            .attr("cy", function() { return Math.random() * 580; })
+            .on('mouseover', tip.show)
+            .on('mouseout', tip.hide);
           
           circle.style("stroke", "black");
           circle.style("stroke-width", "3");

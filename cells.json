@@ -1,46 +1,61 @@
 [
     {
-        "color": "#6e6b28", 
+        "color": "#05e3ad", 
         "BMR": 30, 
         "lifespan": 30
     }, 
     {
-        "color": "#6e6b28", 
+        "color": "#05e3ad", 
         "BMR": 30, 
         "lifespan": 30
     }, 
     {
-        "color": "#6e6b28", 
+        "color": "#05e3ad", 
         "BMR": 30, 
         "lifespan": 30
     }, 
     {
-        "color": "#6e6b28", 
+        "color": "#05e3ad", 
         "BMR": 30, 
         "lifespan": 30
     }, 
     {
-        "color": "#239865", 
+        "color": "#e05049", 
         "BMR": 10, 
         "lifespan": 10
     }, 
     {
-        "color": "#239865", 
+        "color": "#e05049", 
         "BMR": 10, 
         "lifespan": 10
     }, 
     {
-        "color": "#239865", 
+        "color": "#e05049", 
         "BMR": 10, 
         "lifespan": 10
     }, 
     {
-        "color": "#c9625a", 
+        "color": "#e05049", 
+        "BMR": 10, 
+        "lifespan": 10
+    }, 
+    {
+        "color": "#e05049", 
+        "BMR": 10, 
+        "lifespan": 10
+    }, 
+    {
+        "color": "#c98ed6", 
         "BMR": 15, 
         "lifespan": 15
     }, 
     {
-        "color": "#c9625a", 
+        "color": "#c98ed6", 
+        "BMR": 15, 
+        "lifespan": 15
+    }, 
+    {
+        "color": "#c98ed6", 
         "BMR": 15, 
         "lifespan": 15
     }
