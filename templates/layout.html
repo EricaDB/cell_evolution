@@ -4,6 +4,7 @@
     <title>Cell Evolution</title>
     <link href="static/style.css" rel="stylesheet">
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
   </head>
   <body>
   <center>
@@ -14,6 +15,14 @@
           var data = {{ data|safe }};
           
           var svg = d3.select("svg");
+          
+          var tip = d3.tip()
+            .attr('class', 'd3-tip')
+            .html(function(d) {
+             return "<strong>Lifespan: </strong><b><span style='color:black'>" + d.lifespan + "</span></b>";
+             });
+             
+          svg.call(tip); //?
         
           var circle = svg.selectAll("circle")
             .data(data);
@@ -24,7 +33,9 @@
             .enter().append("circle")
             .style("fill", function(d) { return d.color; })
             .attr("cx", function() { return Math.random() * 680; })
-            .attr("cy", function() { return Math.random() * 580; });
+            .attr("cy", function() { return Math.random() * 580; })
+            .on('mouseover', tip.show)
+            .on('mouseout', tip.hide);
           
           circle.style("stroke", "black");
           circle.style("stroke-width", "3");
